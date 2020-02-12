@@ -47,8 +47,8 @@ namespace MyCompany
                 //});
 
                 app.UseEndpoints(endpoints =>
-                { 
-                endpoints.MapAreaControllerRoute("default", )
+                {
+                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id}");
                 });
 
             });
