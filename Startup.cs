@@ -35,20 +35,21 @@ namespace MyCompany
             app.UseRouting();
 
             //подклчаем работу со статическийм файлами(css, js и др.)
+            app.UseStaticFiles();
 
             //маршсрутизация по поинтам
             //app.UseEndpoints(endpoints =>
             //{
-                // маршрут по умолчанию
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    //пример по умолчанию
-                //   await context.Response.WriteAsync("Hello World!");
-                //});
+            // маршрут по умолчанию
+            //endpoints.MapGet("/", async context =>
+            //{
+            //    //пример по умолчанию
+            //   await context.Response.WriteAsync("Hello World!");
+            //});
 
-                //указываем начальную точку(адрес) по умолчанию.(это контроле Home и экшен(метод)Index
-                //ели ни каких данных в запросе не приходит. Используются эта натсройка
-                app.UseEndpoints(endpoints =>
+            //указываем начальную точку(адрес) по умолчанию.(это контроле Home и экшен(метод)Index
+            //ели ни каких данных в запросе не приходит. Используются эта натсройка
+            app.UseEndpoints(endpoints =>
                 {
                     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 });

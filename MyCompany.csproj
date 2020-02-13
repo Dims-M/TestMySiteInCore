@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="bundleconfig.json" />
+    <Content Remove="1bundleconfig.json" />
     <Content Remove="Views\Shared\_ViewStart.cshtml" />
   </ItemGroup>
 
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="bundleconfig.json" />
+    <None Include="1bundleconfig.json" />
     <None Include="wwwroot\sass\libs\_breakpoints.scss" />
     <None Include="wwwroot\sass\libs\_functions.scss" />
     <None Include="wwwroot\sass\libs\_html-grid.scss" />
