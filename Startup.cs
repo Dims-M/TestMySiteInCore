@@ -46,9 +46,11 @@ namespace MyCompany
                 //   await context.Response.WriteAsync("Hello World!");
                 //});
 
+                //указываем начальную точку(адрес) по умолчанию.(это контроле Home и экшен(метод)Index
+                //ели ни каких данных в запросе не приходит. Используются эта натсройка
                 app.UseEndpoints(endpoints =>
                 {
-                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id}");
+                    endpoints.MapControllerRoute("default","{controller=Home}/{action=Index}/{id}");
                 });
 
             });
