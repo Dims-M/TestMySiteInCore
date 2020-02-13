@@ -1,35 +1,27 @@
 ﻿<!DOCTYPE HTML>
-<!--
-    Minimaxing by HTML5 UP
-    html5up.net | ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 <head>
     <!-- Загружаем метаданные титл описание и Сss стили-->
-    @await Html.PartialAsync("MetatagsPartial")
     @await Html.PartialAsync("CssPartial")
+    @await Html.PartialAsync("MetatagsPartial")
+
 </head>
 
 <body>
-    <div id="page-wrapper">
-        <!-- Header -->
+    <div>
+    @*<div id="page-wrapper">*@
         @await Html.PartialAsync("HeaderPartial")
-
-
-        <!-- Main -->
         <div id="main">
             <div class="container">
                 <div class="row main-row">
-                      <div class="col-8 col-12-medium">
+                    <div class="col-8 col-12-medium">
                         @RenderBody()
                     </div>
+                    @await Html.PartialAsync("SidebarPartial")
                 </div>
-                @await Html.PartialAsync("SidebarPartial")
             </div>
         </div>
-
-        <!-- Footer -->
         @await Html.PartialAsync("FooterPartial")
     </div>
     @await Html.PartialAsync("ScriptsPartial")

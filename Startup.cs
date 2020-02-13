@@ -37,8 +37,8 @@ namespace MyCompany
             //подклчаем работу со статическийм файлами(css, js и др.)
 
             //маршсрутизация по поинтам
-            app.UseEndpoints(endpoints =>
-            {
+            //app.UseEndpoints(endpoints =>
+            //{
                 // маршрут по умолчанию
                 //endpoints.MapGet("/", async context =>
                 //{
@@ -50,10 +50,10 @@ namespace MyCompany
                 //ели ни каких данных в запросе не приходит. Используются эта натсройка
                 app.UseEndpoints(endpoints =>
                 {
-                    endpoints.MapControllerRoute("default","{controller=Home}/{action=Index}/{id}");
+                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 });
 
-            });
+            
         }
     }
 }
