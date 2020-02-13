@@ -5,8 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="bundleconfig.json" />
+    <Content Remove="compilerconfig.json" />
     <Content Remove="Views\Shared\CssPartial.cshtml" />
     <Content Remove="Views\Shared\_ViewStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="compilerconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,11 +24,11 @@
     <Folder Include="Service\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\js\" />
-    <Folder Include="wwwroot\sass\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="bundleconfig.json" />
+    <None Include="compilerconfig.json" />
     <None Include="Views\Shared\CssPartial.cshtml" />
   </ItemGroup>
 
