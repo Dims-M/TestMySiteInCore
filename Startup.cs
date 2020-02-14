@@ -22,7 +22,7 @@ namespace MyCompany
         public void ConfigureServices(IServiceCollection services)
         {
             //Подключение и загрузка файла конфигурации Апп appsettings.json в 
-            Configuration.Bind("Project", new Config());
+            Configuration.Bind("Project", new Config()); //сопоставляем файл с настройками и заполняем из статического класса
 
             //DependencyInjection
             //Добавляем потдержку контролерров и представлений MVC
