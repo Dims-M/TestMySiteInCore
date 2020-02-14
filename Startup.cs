@@ -5,17 +5,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyCompany.Service;
 
 namespace MyCompany
 {
     public class Startup
     {
+        //интерфейс для подключения файл конфигурации appsettings.json
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
+
         // Mетод для добавления служб в контейнер
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //Подключение и загрузка файла конфигурации Апп appsettings.json в 
+            Configuration.Bind("Project", new Config());
+
             //DependencyInjection
             //Добавляем потдержку контролерров и представлений MVC
             services.AddControllersWithViews();
@@ -48,7 +56,7 @@ namespace MyCompany
             //});
 
             //указываем начальную точку(адрес) по умолчанию.(это контроле Home и экшен(метод)Index
-            //ели ни каких данных в запросе не приходит. Используются эта натсройка
+            //если ни каких данных в запросе не приходит. Используются эта настройка
             app.UseEndpoints(endpoints =>
                 {
                     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
