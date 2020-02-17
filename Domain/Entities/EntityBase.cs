@@ -12,9 +12,13 @@ namespace MyCompany.Domain.Entities
     /// </summary>
     public abstract class EntityBase
     {
+        //конструктор
+        protected EntityBase() => DateAdded = DateTime.UtcNow; // время с стандарте Utc
+
         [Required] //является обязательным реквезитом для заполнения.
         public Guid Id { get; set; }
-        
+
+        [Required]
         [Display (Name = "Название (заголовок)")]
         public virtual  string Title { get; set; }
 
