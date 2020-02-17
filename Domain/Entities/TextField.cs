@@ -12,10 +12,16 @@ namespace MyCompany.Domain.Entities
     /// </summary>
     public class TextField : EntityBase 
     {
-        [Required]
+        /// <summary>
+        /// Ключевое слова. Для работы на сайте.
+        /// </summary>
+        [Required(ErrorMessage = "Не должно быть пустыл")]
         public virtual string CodeWord { get; set; }
+        [Required(ErrorMessage ="название страницы")]
+        [Display(Name = "Название страницы (заголовок)")]
+        public override string Title { get; set; } = "Информационная страница";
 
         [Display(Name = "Название страницы (заголовок)")]
-        public override string Title { get; set; }
+        public override string Text { get; set; } = "Содержание заполняется администратором";
     }
 }

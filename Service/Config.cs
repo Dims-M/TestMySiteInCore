@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace MyCompany.Service
 {
     /// <summary>
-    /// Класс реализыует работу с настройками appsettings.json
+    /// Класс реализыует работу с настройками appsettings.json. 
+    /// Для загрузки его при старте приложения в Startup
     /// </summary>
-    public  class Config
+    public class Config
     {
         public static string ConnectionString { get; set; }
         public static string CompanyName { get; set; }
