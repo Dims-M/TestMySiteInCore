@@ -17,8 +17,9 @@ namespace MyCompany.Domain.Entities
         /// </summary>
         [Required(ErrorMessage = "Не должно быть пустыл")]
         public virtual string CodeWord { get; set; }
-        [Required(ErrorMessage ="название страницы")]
+        [Required(ErrorMessage ="Название страницы")]
         [Display(Name = "Название страницы (заголовок)")]
+       
         public override string Title { get; set; } = "Информационная страница";
 
         [Display(Name = "Название страницы (заголовок)")]
