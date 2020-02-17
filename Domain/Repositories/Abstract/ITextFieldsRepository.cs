@@ -8,19 +8,40 @@ using System.Threading.Tasks;
 namespace MyCompany.Domain.Repositories.Abstract
 {
     /// <summary>
-    /// Интерфейсы для реализации Doma.. обьектов
+    /// Интерфейсы для реализации Domain.. обьектов
     /// </summary>
     public interface ITextFieldsRepository
     {
         /// <summary>
-    /// Gjkexbnm(Выборка все полей)
+    /// Получить все тестовые слова (Выборка все полей)
     /// </summary>
     /// <returns></returns>
-       
-        IQueryable<TextField> GetTextFields(); 
+        IQueryable<TextField> GetTextFields();
+
+        /// <summary>
+        /// Получение слова по Id
+        /// </summary>
+        /// <param name="id">Уникальный Guid(id)</param>
+        /// <returns></returns>
         TextField GetTextFieldById(Guid id);
+
+        /// <summary>
+        /// Получение нужного слова
+        /// </summary>
+        /// <param name="codeWord">Параметр слово</param>
+        /// <returns></returns>
         TextField GetTextFieldByCodeWord(string codeWord);
+
+        /// <summary>
+        /// Сохранение поле
+        /// </summary>
+        /// <param name="entity"></param>
         void SaveTextField(TextField entity);
+
+        /// <summary>
+        /// Удаление нужного поля по ID
+        /// </summary>
+        /// <param name="id"></param>
         void DeleteTextField(Guid id);
     }
 }

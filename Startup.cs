@@ -24,6 +24,8 @@ namespace MyCompany
             //Подключение и загрузка файла конфигурации Апп appsettings.json в 
             Configuration.Bind("Project", new Config()); //сопоставляем файл с настройками и заполняем из статического класса
 
+            //Подключаем наш "самопистный" функционал приложения, в качестве сервисов!!!! 
+
             //DependencyInjection
             //Добавляем потдержку контролерров и представлений MVC
             services.AddControllersWithViews();
