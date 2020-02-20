@@ -9,8 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Models\ViewComponents\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
@@ -43,7 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\ViewImports.cshtml">
+    <Content Update="Views\_ViewImports.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
