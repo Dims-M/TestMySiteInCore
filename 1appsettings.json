@@ -1,0 +1,9 @@
+{
+  "Project": {
+    "ConnectionString": "Data Source=(localdb)\\mssqllocaldb; Database=MyCompany;  Trusted_Connection=True;",
+    "CompanyName": "Тестовой сайт компании Копытного магазина",
+    "CompanyPhone": "+7 (111) 111-11-11",
+    "CompanyPhoneShort": "+71111111111",
+    "CompanyEmail": "contact@mycompany.com"
+  } 
+}
