@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Account\Login.cshtml" />
     <None Include="wwwroot\sass\libs\_breakpoints.scss" />
     <None Include="wwwroot\sass\libs\_functions.scss" />
     <None Include="wwwroot\sass\libs\_html-grid.scss" />
