@@ -59,13 +59,28 @@ namespace MyCompany
                 options.SlidingExpiration = true;
             });
 
+            //сервис авторизации администратора
+            //настраиваем политику авторизации для Admin area
+            services.AddAuthorization(x =>
+            {
+                x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+
+            });
+
             //DependencyInjection
             //Добавляем потдержку контролерров и представлений MVC
-            services.AddControllersWithViews()
+            services.AddControllersWithViews(x =>
+            {
+                //проверка контролера для аторизации админа.(1 параметр область, 2 политика(берется из сервиса AddAuthorization)
+                x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
             //выставляем совместимость с asp.net core 3.0
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
+                
 
         }
+
+
 
         // метод для настройки конвейера HTTP-запросов. middleware
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -82,15 +97,17 @@ namespace MyCompany
             //подклчаем работу со статическийм файлами(css, js и др.)
             app.UseStaticFiles();
 
+            //подключаем аутентификацию и авторизацию
             app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseAuthorization();
 
 
-            //маршсрутизация по поинтам
+            //маршрутизация по поинтам
             //если ни каких данных в запросе не приходит. Используются эта настройка
             app.UseEndpoints(endpoints =>
                 {
+                    endpoints.MapControllerRoute("admin", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 });
 

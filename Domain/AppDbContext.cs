@@ -53,6 +53,7 @@ namespace MyCompany.Domain
             });
 
             //промежуточная, системная таблица. Для хранения ролей.
+            //Роли для админа. см. Id
             modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
                 RoleId = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
