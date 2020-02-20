@@ -10,18 +10,18 @@ namespace MyCompany.Controllers
     /// Контрелер для авторизации
     /// </summary>
     [Authorize] //атрибут авторизации. Для этой области
-    public class AccountController1 : Controller
+    public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
         //в конструкторе передаем пользователей
-        public AccountController1(UserManager<IdentityUser> userMgr, SignInManager<IdentityUser> signinMgr)
+        public AccountController(UserManager<IdentityUser> userMgr, SignInManager<IdentityUser> signinMgr)
         {
             userManager = userMgr;
             signInManager = signinMgr;
         }
-        
+
         //Метод для вызова вьюхи ввода логина
         [AllowAnonymous] // атрибут анонимного пользователя. узер должен быть не авторизован
         public IActionResult Login(string returnUrl)
