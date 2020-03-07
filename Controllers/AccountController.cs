@@ -12,6 +12,7 @@ namespace MyCompany.Controllers
     [Authorize] //атрибут авторизации. Для этой области
     public class AccountController : Controller
     {
+        //для оперирования пользователями в бд через контекст
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
@@ -23,7 +24,7 @@ namespace MyCompany.Controllers
         }
 
         //Метод для вызова вьюхи ввода логина
-        [AllowAnonymous] // атрибут анонимного пользователя. узер должен быть не авторизован
+        [AllowAnonymous] // атрибут анонимного пользователя. юзер должен быть не авторизован
         public IActionResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl; //
@@ -50,7 +51,7 @@ namespace MyCompany.Controllers
                 }
                 ModelState.AddModelError(nameof(LoginViewModel.UserName), "Неверный логин или пароль"); //отправляем пользователю
             }
-            return View(model);
+            return View(model); //отправляем в браузер
         }
 
         [Authorize]
