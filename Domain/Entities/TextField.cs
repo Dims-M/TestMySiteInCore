@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MyCompany.Domain.Entities
 {
     /// <summary>
-    /// Класс оаысывает страницы на Сатйе. Переопрееляет методы базового класса EntityBase 
+    /// Класс опысывает страницы на Сайте. Переопрееляет методы базового класса EntityBase 
     /// </summary>
     public class TextField : EntityBase 
     {

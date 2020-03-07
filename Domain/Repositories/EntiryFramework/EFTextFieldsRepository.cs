@@ -16,12 +16,13 @@ namespace MyCompany.Domain.Repositories.EntiryFramework
     {
         private readonly AppDbContext context;
 
-        //конструктор
+        //конструктор. Контекст работы с бд. Получаем и сохраняем в Бд
         public EFTextFieldsRepository(AppDbContext context)
         {
             this.context = context;
         }
 
+        
         public IQueryable<TextField> GetTextFields()
         {
             return context.TextFields; //получаем все записи

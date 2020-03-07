@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MyCompany.Domain.Repositories.Abstract
 {
+    /// <summary>
+    /// Интерфейс реализует получение услуг
+    /// </summary>
     public interface IServiceItemsRepository
     {
 

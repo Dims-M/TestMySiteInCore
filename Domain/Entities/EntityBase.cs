@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 namespace MyCompany.Domain.Entities
 {
     /// <summary>
-    /// Абстрактный класс описывающий таблицы в БД
+    /// Абстрактный базовый класс для остальных сущностей, описывающий таблицы в БД
     /// </summary>
     public abstract class EntityBase
     {
-        //конструктор
-        protected EntityBase() => DateAdded = DateTime.UtcNow; // время с стандарте Utc
+        // защищенный конструктор. При каждом создании оьекта. Будет создоватся и записоватся  время его создания 
+        protected EntityBase() => DateAdded = DateTime.Now;// UtcNow; // время с стандарте Utc
 
         [Required] //является обязательным реквезитом для заполнения.
         public Guid Id { get; set; }
@@ -41,6 +41,7 @@ namespace MyCompany.Domain.Entities
         public virtual string MetaKeywords { get; set; }
 
         [DataType(DataType.Time)]
+        [Required]
         public DateTime DateAdded { get; set; }
 
     }

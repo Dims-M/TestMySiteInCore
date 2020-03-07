@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace MyCompany.Domain
 {
     /// <summary>
-    /// Связь с базой данных
+    /// Связь с базой данных. Между классами и строками в бд
     /// Наследуетсся от IdentityDbContext. Для работы с пользователями БД
     /// Используется стандартный пользователь IdentityUser
     /// </summary>
@@ -20,7 +20,7 @@ namespace MyCompany.Domain
         //коструктор
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        //Описывающие таблицы в БД. 
+        //Описывающие таблицы в БД. Проекция на бд
         public DbSet<TextField> TextFields { get; set; }
         public DbSet<ServiceItem> ServiceItems { get; set; }
         /// <summary>
@@ -34,17 +34,17 @@ namespace MyCompany.Domain
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
             {
                 Id = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
-                Name = "admin",
+                Name = "admin", // имя роли
                 NormalizedName = "ADMIN"
             });
 
             //создание самих пользователей.
-            //проверка идет по Id. Если такого пользователя нет. То создается новый
+            //проверка идет по Id. Если такого пользователя нет в бд. То создается новый пользователь Админ
             modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
             {
                 Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
                 UserName = "admin",
-                NormalizedUserName = "ADMIN",
+                NormalizedUserName = "ADMIN", //имя
                 Email = "my@email.com",
                 NormalizedEmail = "MY@EMAIL.COM",
                 EmailConfirmed = true,
@@ -60,11 +60,11 @@ namespace MyCompany.Domain
                 UserId = "3b62472e-4f66-49fa-a20f-e7685b9565d8"
             });
 
-            //СОздание самих страниц. Класс Текстовые поля.
+            //СОздание самих страниц(оьектов классов описывающих сайт). Класс Текстовые поля.
             modelBuilder.Entity<TextField>().HasData(new TextField
             {
                 Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"),
-                CodeWord = "PageIndex",
+                CodeWord = "PageIndex", //главная страница сайта
                 Title = "Главная"
             });
             modelBuilder.Entity<TextField>().HasData(new TextField
