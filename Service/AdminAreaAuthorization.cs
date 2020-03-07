@@ -28,12 +28,13 @@ namespace MyCompany.Service
 
         public void Apply(ControllerModel controller)
         {
+            // проверяем  на  соотвествие атрибутам
             if (controller.Attributes.Any(a =>  //если присуствует атрибут  Area 
                     a is AreaAttribute && (a as AreaAttribute).RouteValue.Equals(area, StringComparison.OrdinalIgnoreCase))
                 || controller.RouteValues.Any(r =>
                     r.Key.Equals("area", StringComparison.OrdinalIgnoreCase) && r.Value.Equals(area, StringComparison.OrdinalIgnoreCase)))
             {
-                controller.Filters.Add(new AuthorizeFilter(policy));
+                controller.Filters.Add(new AuthorizeFilter(policy)); //отправляем на авторизацию
             }
         }
     }
