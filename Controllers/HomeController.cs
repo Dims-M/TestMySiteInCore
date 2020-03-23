@@ -15,7 +15,7 @@ namespace MyCompany.Controllers
         //для работы с БД
         private readonly DataManager dataManager;
 
-        //Консруктор
+        //Конструктор
         HomeController(DataManager dataManager)
         {
             this.dataManager = dataManager;
