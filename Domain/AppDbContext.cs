@@ -17,7 +17,7 @@ namespace MyCompany.Domain
     /// </summary>
     public class AppDbContext : IdentityDbContext<IdentityUser>
     {
-        //коструктор
+        //конструктор
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         //Описывающие таблицы в БД. Проекция на бд
@@ -60,7 +60,7 @@ namespace MyCompany.Domain
                 UserId = "3b62472e-4f66-49fa-a20f-e7685b9565d8"
             });
 
-            //СОздание самих страниц(оьектов классов описывающих сайт). Класс Текстовые поля.
+            //СОздание самих страниц(обьектов классов описывающих сайт). Класс Текстовые поля.
             modelBuilder.Entity<TextField>().HasData(new TextField
             {
                 Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"),
