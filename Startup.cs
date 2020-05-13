@@ -24,7 +24,7 @@ namespace MyCompany
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration) => Configuration = configuration;
 
-        // Mетод для добавления служб в контейнер
+        // Mетод для добавления служб в контейнер Регистрация нужных нам сервисов.
         public void ConfigureServices(IServiceCollection services)
         {
             //Подключение и загрузка файла конфигурации Апп appsettings.json в 
