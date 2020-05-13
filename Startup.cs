@@ -33,7 +33,7 @@ namespace MyCompany
             //Подключаем наш "самопистный" функционал приложения, в качестве сервисов!!!! 
             services.AddTransient<ITextFieldsRepository, EFTextFieldsRepository>(); //связываем интерфейс. С конректным класом реализации
             services.AddTransient<IServiceItemsRepository, EFServiceItemsRepository>();
-            services.AddTransient<DataManager>();
+            services.AddTransient<DataManager>(); //внедряем в систему
 
             //добавление контекста. Для работы с БД
             services.AddDbContext<AppDbContext>(x=> x.UseSqlServer(Config.ConnectionString)); //указываем что используем SqlServer. Параметор строка подключения указывается к конфиге Config.ConnectionString
@@ -94,7 +94,7 @@ namespace MyCompany
             //маршрутизация по контроллерам(ссылкам)
             app.UseRouting();
 
-            //подклчаем работу со статическийм файлами(css, js и др.)
+            //подключаем работу со статическийм файлами(css, js и др.)
             app.UseStaticFiles();
 
             //подключаем аутентификацию и авторизацию

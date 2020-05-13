@@ -12,6 +12,9 @@ namespace MyCompany.Domain
     /// </summary>
     public class DataManager
     {
+        /// <summary>
+        /// Для работы с ключевыми словами
+        /// </summary>
         public ITextFieldsRepository TextFields { get;set; }
         public IServiceItemsRepository ServiceItems { get;set; }
 
